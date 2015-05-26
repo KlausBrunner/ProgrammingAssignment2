@@ -1,7 +1,7 @@
 ## Using R's scoping rules and first-class functions to cache values.
 ## Coursera R Programming Course (Roger Peng), Programming Assignment 2
 
-## Return a vector of functions that store a matrix and its associated inverted 
+## Return a list of functions that store a matrix and its associated inverted 
 ## matrix.
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
@@ -21,8 +21,8 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Return a matrix that is the inverse of the matrix x as defined by 
-## cacheMatrix. Assumes that x is invertible. Uses cached value on repeated
-## calls.
+## makeCacheMatrix. Assumes that x is invertible. Uses cached value on repeated
+## calls. Any additional parameters are passed on to solve().
 cacheSolve <- function(x, ...) {
     inv <- x$getinv()
     if(!is.null(inv)) {
